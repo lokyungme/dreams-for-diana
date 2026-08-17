@@ -1,0 +1,1293 @@
+:root {
+  --paper: #f6f4ed;
+  --ink: #11110f;
+  --muted: #77756f;
+  --line: rgba(17, 17, 15, .22);
+  --sun: #f4d94e;
+  --sidebar: 210px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "DM Mono", monospace;
+  font-weight: 300;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.site-shell {
+  display: grid;
+  grid-template-columns: var(--sidebar) 1fr;
+}
+
+.sidebar {
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  padding: 26px 22px;
+  border-right: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  z-index: 10;
+}
+
+.wordmark {
+  font-family: "Libre Caslon Display", serif;
+  font-size: 25px;
+  line-height: .9;
+  letter-spacing: -.03em;
+}
+
+.nav {
+  margin-top: 72px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 12px;
+}
+
+.nav a:hover,
+.text-link:hover { opacity: .45; }
+
+.sidebar-bottom {
+  margin-top: auto;
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.sidebar-bottom p { max-width: 150px; color: var(--muted); }
+
+.donate-link {
+  display: inline-block;
+  padding-bottom: 3px;
+  border-bottom: 1px solid currentColor;
+  margin-bottom: 15px;
+}
+
+main { min-width: 0; }
+
+.hero {
+  min-height: 100vh;
+  position: relative;
+  padding: 34px 38px 34px;
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 40px;
+  align-items: end;
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.hero-copy { align-self: center; max-width: 700px; }
+
+.eyebrow,
+.section-number,
+.card-label {
+  font-size: 10px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.hero h1,
+.section h2,
+.donate-section h2 {
+  font-family: "Libre Caslon Display", serif;
+  font-weight: 400;
+}
+
+.hero h1 {
+  margin: 20px 0 28px;
+  font-size: clamp(78px, 10vw, 175px);
+  line-height: .74;
+  letter-spacing: -.055em;
+}
+
+.intro {
+  max-width: 620px;
+  font-family: "Libre Caslon Display", serif;
+  font-size: clamp(18px, 2vw, 28px);
+  line-height: 1.12;
+  margin-bottom: 26px;
+}
+
+.text-link {
+  font-size: 11px;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 3px;
+}
+
+.hero-image {
+  height: min(70vh, 720px);
+  align-self: center;
+}
+
+.placeholder {
+  background:
+    linear-gradient(135deg, transparent 0 48%, rgba(17,17,15,.1) 49% 51%, transparent 52%),
+    linear-gradient(45deg, transparent 0 48%, rgba(17,17,15,.1) 49% 51%, transparent 52%);
+  border: 1px solid var(--line);
+  display: grid;
+  place-items: center;
+  font-size: 9px;
+  letter-spacing: .1em;
+}
+
+.changing-note {
+  position: absolute;
+  right: 38px;
+  top: 26px;
+  font-size: 9px;
+  max-width: 260px;
+  text-align: right;
+}
+
+.living-mark {
+  position: absolute;
+  width: 190px;
+  height: 190px;
+  top: 26%;
+  left: 54%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.sunflower-mark {
+  animation: sunflower-drift 14s ease-in-out infinite alternate;
+}
+
+.petal {
+  position: absolute;
+  width: 46px;
+  height: 80px;
+  left: 72px;
+  top: 15px;
+  transform-origin: 23px 81px;
+  background: var(--sun);
+  border: 1px solid var(--ink);
+  border-radius: 58% 42% 62% 38% / 72% 68% 32% 28%;
+  opacity: .96;
+  animation: petal-breathe 8s ease-in-out infinite alternate;
+}
+
+/* deliberately uneven, closer to a drawn flower than a perfect icon */
+.p1  { transform: rotate(1deg)   scale(.94, 1.05); }
+.p2  { transform: rotate(31deg)  scale(1.06, .92); animation-delay: -.6s; }
+.p3  { transform: rotate(60deg)  scale(.91, 1.08); animation-delay: -1.2s; }
+.p4  { transform: rotate(91deg)  scale(1.03, .95); animation-delay: -1.8s; }
+.p5  { transform: rotate(121deg) scale(.95, 1.02); animation-delay: -2.4s; }
+.p6  { transform: rotate(151deg) scale(1.08, .90); animation-delay: -3s; }
+.p7  { transform: rotate(181deg) scale(.92, 1.06); animation-delay: -3.6s; }
+.p8  { transform: rotate(211deg) scale(1.04, .94); animation-delay: -4.2s; }
+.p9  { transform: rotate(240deg) scale(.93, 1.09); animation-delay: -4.8s; }
+.p10 { transform: rotate(271deg) scale(1.08, .91); animation-delay: -5.4s; }
+.p11 { transform: rotate(301deg) scale(.94, 1.03); animation-delay: -6s; }
+.p12 { transform: rotate(331deg) scale(1.02, .96); animation-delay: -6.6s; }
+
+.sunflower-center {
+  position: absolute;
+  width: 72px;
+  height: 72px;
+  left: 59px;
+  top: 59px;
+  border-radius: 48% 52% 46% 54%;
+  border: 1px solid var(--ink);
+  background:
+    radial-gradient(circle at 35% 32%, rgba(246,244,237,.13) 0 2px, transparent 2.5px),
+    radial-gradient(circle at 68% 58%, rgba(246,244,237,.12) 0 1.5px, transparent 2px),
+    radial-gradient(circle at 46% 74%, rgba(246,244,237,.10) 0 1.5px, transparent 2px),
+    #27231b;
+  background-size: 13px 13px, 11px 11px, 17px 17px, auto;
+  animation: center-breathe 9s ease-in-out infinite alternate;
+}
+
+@keyframes sunflower-drift {
+  from { transform: translate(-50%, -50%) rotate(-3deg) translateY(3px); }
+  to   { transform: translate(-50%, -50%) rotate(4deg) translateY(-5px); }
+}
+
+@keyframes petal-breathe {
+  0%   { filter: saturate(.92); }
+  100% { filter: saturate(1.08); }
+}
+
+@keyframes center-breathe {
+  from { transform: scale(.96) rotate(-2deg); }
+  to   { transform: scale(1.03) rotate(2deg); }
+}
+
+.section {
+  padding: 72px 38px;
+  border-bottom: 1px solid var(--line);
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
+}
+
+.section h2 {
+  font-size: clamp(46px, 6vw, 92px);
+  line-height: .9;
+  letter-spacing: -.04em;
+  margin: 15px 0 0;
+}
+
+.body-copy {
+  max-width: 720px;
+  padding-top: 28px;
+  font-family: "Libre Caslon Display", serif;
+  font-size: 25px;
+  line-height: 1.18;
+}
+
+.body-copy p:first-child { margin-top: 0; }
+
+.section-head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: end;
+  margin-bottom: 58px;
+}
+
+.section-summary {
+  max-width: 520px;
+  line-height: 1.55;
+  font-size: 13px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.cards article {
+  min-height: 260px;
+  padding: 20px;
+  border-right: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+}
+
+.cards article:last-child { border-right: 0; }
+
+.cards h3,
+.fundraiser h3 {
+  font-family: "Libre Caslon Display", serif;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1;
+}
+
+.cards article p:last-child {
+  margin-top: auto;
+  max-width: 280px;
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.fundraiser-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.fundraiser-image { aspect-ratio: 4 / 3; }
+
+.fundraiser h3 { margin-bottom: 8px; }
+.fundraiser p { font-size: 11px; max-width: 420px; line-height: 1.5; }
+.fundraiser:hover .fundraiser-image { transform: rotate(.35deg); }
+.fundraiser-image { transition: transform .25s ease; }
+
+.action-section h2 { max-width: 900px; }
+
+.actions {
+  margin-top: 65px;
+  border-top: 1px solid var(--line);
+}
+
+.actions a {
+  font-family: "Libre Caslon Display", serif;
+  font-size: clamp(32px, 5vw, 72px);
+  padding: 12px 0 8px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+}
+
+.actions a:hover { padding-left: 12px; }
+
+.update-list { border-top: 1px solid var(--line); }
+.update-list a {
+  display: grid;
+  grid-template-columns: 160px 1fr 30px;
+  gap: 20px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+  align-items: baseline;
+  font-size: 11px;
+}
+
+.update-list strong {
+  font-family: "Libre Caslon Display", serif;
+  font-size: 26px;
+  font-weight: 400;
+}
+
+.donate-section {
+  min-height: 72vh;
+  padding: 60px 38px;
+  background: var(--sun);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.donate-section h2 {
+  font-size: clamp(72px, 10vw, 160px);
+  line-height: .78;
+  letter-spacing: -.055em;
+  max-width: 1100px;
+  margin: 80px 0;
+}
+
+.donate-button {
+  align-self: flex-start;
+  border: 1px solid var(--ink);
+  padding: 14px 18px;
+  font-size: 11px;
+}
+
+.donate-button:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+footer {
+  padding: 24px 38px 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 20px;
+  font-size: 10px;
+}
+
+@media (max-width: 800px) {
+  :root { --sidebar: 0px; }
+  .site-shell { display: block; }
+  .sidebar {
+    position: relative;
+    height: auto;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+    padding: 16px 18px;
+  }
+  .nav {
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 16px;
+  }
+  .sidebar-bottom { display: none; }
+  .hero {
+    min-height: auto;
+    grid-template-columns: 1fr;
+    padding: 70px 18px 24px;
+  }
+  .hero h1 { font-size: 82px; }
+  .hero-image { height: 55vh; }
+  .changing-note { top: 18px; right: 18px; }
+  .living-mark { width: 110px; height: 110px; top: 24%; left: 73%; }
+  .section { padding: 48px 18px; }
+  .split,
+  .section-head,
+  .fundraiser-grid { grid-template-columns: 1fr; gap: 28px; }
+  .body-copy { font-size: 21px; padding-top: 0; }
+  .cards { grid-template-columns: 1fr; }
+  .cards article { border-right: 0; border-bottom: 1px solid var(--line); min-height: 200px; }
+  .cards article:last-child { border-bottom: 0; }
+  .update-list a { grid-template-columns: 92px 1fr 20px; }
+  .update-list strong { font-size: 20px; }
+  .donate-section { min-height: 65vh; padding: 42px 18px; }
+  .donate-section h2 { font-size: 72px; }
+  footer { grid-template-columns: 1fr; padding: 24px 18px; }
+}
+
+.hero-image {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #e9e4d8;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.pkan-copy > .body-copy {
+  max-width: 850px;
+  margin-left: auto;
+  margin-bottom: 64px;
+}
+
+.pkan-facts article {
+  min-height: 190px;
+}
+
+.pkan-facts h3 {
+  margin-top: auto;
+  font-size: clamp(28px, 3.5vw, 52px);
+}
+
+.story-head {
+  margin-bottom: 34px;
+}
+
+.story-copy {
+  max-width: 850px;
+  margin-left: auto;
+  padding-top: 0;
+}
+
+@media (max-width: 800px) {
+  .story-copy {
+    margin-left: 0;
+  }
+}
+
+.featured-fundraiser {
+  margin-bottom: 54px;
+}
+
+.featured-loving-loic {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 32px;
+  align-items: stretch;
+}
+
+.featured-loving-loic .fundraiser-image {
+  aspect-ratio: 16 / 9;
+  min-height: 380px;
+}
+
+.featured-fundraiser-copy {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 22px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.featured-fundraiser-copy h3 {
+  font-size: clamp(42px, 5vw, 76px);
+  margin: 22px 0;
+}
+
+.featured-fundraiser-copy > p:not(.card-label) {
+  font-size: 12px;
+  line-height: 1.6;
+  max-width: 440px;
+}
+
+.featured-fundraiser-copy .text-link {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+.secondary-fundraisers {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 800px) {
+  .featured-loving-loic {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-loving-loic .fundraiser-image {
+    min-height: 0;
+  }
+
+  .featured-fundraiser-copy {
+    min-height: 320px;
+  }
+
+  .secondary-fundraisers {
+    grid-template-columns: 1fr;
+  }
+}
+
+.loving-loic-image {
+  background: #fff;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  display: grid;
+  place-items: center;
+}
+
+.loving-loic-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Slight readability bump for small informational copy */
+.section-summary {
+  font-size: 13px;
+}
+
+.nav {
+  font-size: 12px;
+}
+
+.changing-note {
+  font-size: 10px;
+}
+
+footer {
+  font-size: 10px;
+}
+
+/* Homepage sunflower: overlap the upper-left corner of Diana's photograph */
+.hero .living-mark {
+  top: 29%;
+  left: 66%;
+  z-index: 4;
+}
+
+/* Keep the flower readable over the new warm yellow paper */
+.hero-image {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 800px) {
+  .hero .living-mark {
+    top: 50%;
+    left: 18px;
+    transform: translate(-12%, -50%);
+  }
+}
+
+/* Requested homepage placement: sunflower centered inside the dotted box */
+.hero .living-mark {
+  width: 150px;
+  height: 150px;
+  top: 25%;
+  left: 54%;
+  z-index: 4;
+}
+
+/* Scale the flower itself down proportionally for the box */
+.hero .sunflower-mark {
+  transform-origin: center;
+}
+
+@media (max-width: 800px) {
+  .hero .living-mark {
+    width: 105px;
+    height: 105px;
+    top: 24%;
+    left: 73%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+
+
+/* Positioning fix: move the homepage sunflower ~1 CSS inch (96px) upward.
+   Use top rather than transform so the sunflower animation cannot override it. */
+@media (min-width: 801px) {
+  .hero .living-mark {
+    top: calc(25% - 96px) !important;
+  }
+}
+
+/* Loving Loic featured fundraiser — balanced image/type proportions */
+.featured-loving-loic {
+  grid-template-columns: minmax(0, 1.15fr) minmax(340px, .85fr);
+  gap: 56px;
+}
+
+.featured-loving-loic .loving-loic-image {
+  min-height: 0;
+  aspect-ratio: 1.65 / 1;
+  padding: 54px;
+  box-sizing: border-box;
+}
+
+.featured-loving-loic .loving-loic-image img {
+  width: 100%;
+  height: 100%;
+  max-width: 880px;
+  max-height: 430px;
+  object-fit: contain;
+}
+
+.featured-fundraiser-copy {
+  min-width: 0;
+  padding: 28px 0 30px;
+}
+
+.featured-fundraiser-copy h3 {
+  font-size: clamp(42px, 4vw, 66px);
+  line-height: .94;
+  max-width: 560px;
+  overflow-wrap: normal;
+}
+
+.featured-fundraiser-copy > p:not(.card-label) {
+  max-width: 520px;
+}
+
+@media (max-width: 1100px) {
+  .featured-loving-loic {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .featured-loving-loic .loving-loic-image {
+    aspect-ratio: 16 / 7;
+    padding: 40px;
+  }
+
+  .featured-fundraiser-copy h3 {
+    font-size: clamp(40px, 7vw, 64px);
+  }
+}
+
+/* Hero slideshow */
+.slideshow-trigger {
+  cursor: pointer;
+}
+
+#hero-slideshow-image {
+  transition: opacity 180ms ease;
+}
+
+#hero-slideshow-image.is-changing {
+  opacity: 0;
+}
+
+#sunflower-next:focus-visible,
+#hero-slideshow:focus-visible {
+  outline: 1px dashed var(--ink);
+  outline-offset: 6px;
+}
+
+/* Hero slideshow: portrait image area with no gray frame */
+.hero-image {
+  aspect-ratio: 4 / 5 !important;
+  height: auto !important;
+  min-height: 0 !important;
+  overflow: hidden;
+  border: none !important;
+  outline: none !important;
+  background: transparent !important;
+}
+
+.hero-image img,
+#hero-slideshow-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Remove any placeholder/frame treatment from slideshow images */
+.hero-image::before,
+.hero-image::after {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Give the upper-right note breathing room above the portrait slideshow */
+@media (min-width: 801px) {
+  .hero-image {
+    margin-top: 54px !important;
+  }
+}
+
+.research-copy { max-width: 850px; margin-left: auto; }
+.research-copy strong { font-weight: 700; }
+
+/* Donate CTA refinements */
+#donate h2 {
+  font-size: clamp(68px, 8vw, 138px) !important;
+  line-height: 0.92 !important;
+  max-width: 1250px;
+}
+
+#donate .donate-button {
+  font-size: 15px !important;
+  padding: 22px 34px !important;
+  min-width: 180px;
+  min-height: 68px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 800px) {
+  #donate h2 {
+    font-size: clamp(50px, 15vw, 84px) !important;
+  }
+
+  #donate .donate-button {
+    font-size: 14px !important;
+    padding: 19px 28px !important;
+    min-width: 160px;
+    min-height: 60px;
+  }
+}
+
+/* Dreams for Diana personal fundraiser — typography only */
+.dreams-fund-graphic {
+  background: var(--paper);
+  border: none !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 42px;
+  box-sizing: border-box;
+  min-height: 300px;
+}
+
+.dreams-fund-title {
+  font-family: var(--serif);
+  font-size: clamp(44px, 4.5vw, 74px);
+  line-height: .94;
+  letter-spacing: -.035em;
+}
+
+.dreams-fund-subtitle {
+  margin-top: 30px;
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+.dreams-fund-graphic {
+  background: #F1D7BF !important;
+}
+
+/* Match Dreams for Diana card typography to the rest of the site */
+.dreams-fund-title {
+  font-family: var(--serif) !important;
+  font-weight: 400;
+}
+
+.dreams-fund-subtitle {
+  font-family: var(--mono) !important;
+  font-weight: 400;
+}
+
+/* Paintings for PKAN — typography-only fundraiser graphic */
+.paintings-fund-graphic {
+  background: #DCE1C8 !important;
+  border: none !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 42px;
+  box-sizing: border-box;
+  min-height: 300px;
+}
+
+.paintings-fund-title {
+  font-family: var(--serif) !important;
+  font-size: clamp(44px, 4.5vw, 74px);
+  font-weight: 400;
+  line-height: .94;
+  letter-spacing: -.035em;
+}
+
+.paintings-fund-subtitle {
+  margin-top: 30px;
+  font-family: var(--mono) !important;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+/* Living sunflower field in the yellow donate CTA */
+#donate {
+  position: relative;
+  overflow: hidden;
+}
+
+#donate > *:not(.cta-sunflowers) {
+  position: relative;
+  z-index: 2;
+}
+
+.cta-sunflowers {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.flower-pos {
+  position: absolute;
+  display: block;
+  animation: cta-flower-float 7s ease-in-out infinite alternate;
+}
+
+.flower-a { width: 104px; height: 104px; right: 7%; top: 11%; transform: rotate(8deg); }
+.flower-b { width: 64px; height: 64px; right: 20%; bottom: 10%; transform: rotate(-12deg); animation-delay: -2s; }
+.flower-c { width: 48px; height: 48px; left: 5%; bottom: 8%; transform: rotate(16deg); animation-delay: -4s; }
+.flower-d { width: 76px; height: 76px; right: 3%; top: 53%; transform: rotate(-5deg); animation-delay: -1s; }
+
+.cta-flower,
+.cta-petals {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.cta-petals i {
+  position: absolute;
+  width: 27%;
+  height: 48%;
+  left: 36.5%;
+  top: 2%;
+  background: #f7c83d;
+  border: 1.2px solid #171717;
+  border-radius: 50% 50% 48% 48%;
+  transform-origin: 50% 100%;
+}
+
+.cta-petals i:nth-child(1)  { transform: rotate(0deg); }
+.cta-petals i:nth-child(2)  { transform: rotate(30deg); }
+.cta-petals i:nth-child(3)  { transform: rotate(60deg); }
+.cta-petals i:nth-child(4)  { transform: rotate(90deg); }
+.cta-petals i:nth-child(5)  { transform: rotate(120deg); }
+.cta-petals i:nth-child(6)  { transform: rotate(150deg); }
+.cta-petals i:nth-child(7)  { transform: rotate(180deg); }
+.cta-petals i:nth-child(8)  { transform: rotate(210deg); }
+.cta-petals i:nth-child(9)  { transform: rotate(240deg); }
+.cta-petals i:nth-child(10) { transform: rotate(270deg); }
+.cta-petals i:nth-child(11) { transform: rotate(300deg); }
+.cta-petals i:nth-child(12) { transform: rotate(330deg); }
+
+.cta-flower b {
+  position: absolute;
+  width: 37%;
+  height: 37%;
+  left: 31.5%;
+  top: 31.5%;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 35%, #6d6659 0 3%, transparent 4%),
+    radial-gradient(circle at 62% 30%, #6d6659 0 3%, transparent 4%),
+    radial-gradient(circle at 45% 62%, #6d6659 0 3%, transparent 4%),
+    #24221e;
+  border: 1.3px solid #171717;
+  z-index: 3;
+}
+
+@keyframes cta-flower-float {
+  from { translate: 0 0; }
+  to   { translate: 0 -8px; }
+}
+
+@media (max-width: 800px) {
+  .flower-a { width: 72px; height: 72px; right: 4%; top: 8%; }
+  .flower-b { width: 48px; height: 48px; right: 8%; bottom: 8%; }
+  .flower-c { width: 38px; height: 38px; left: 4%; bottom: 5%; }
+  .flower-d { display: none; }
+}
+
+/* Softer sunflower-paper tone for donate CTA */
+#donate {
+  background: #F3E6A6 !important;
+}
+
+/* Remove the lower-left flower so the donate button stays completely clear */
+#donate .flower-c {
+  display: none !important;
+}
+
+/* Slightly soften the petals against the quieter background */
+#donate .cta-petals i {
+  background: #EFCB4F;
+}
+
+/* Practical ways-to-help list */
+.help-list {
+  max-width: 850px;
+  margin-left: auto;
+  border-top: 1px solid var(--line);
+}
+
+.help-item {
+  display: grid;
+  grid-template-columns: minmax(240px, .8fr) minmax(280px, 1.2fr);
+  gap: 40px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.help-item h3 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(25px, 2.4vw, 38px);
+  font-weight: 400;
+  line-height: 1;
+  text-transform: none;
+}
+
+.help-item p {
+  margin: 3px 0 0;
+  font-size: 13px;
+  line-height: 1.55;
+  text-transform: none;
+}
+
+@media (max-width: 800px) {
+  .help-list { margin-left: 0; }
+  .help-item { grid-template-columns: 1fr; gap: 10px; }
+}
+
+/* Use What You Have refinements */
+.help-item {
+  grid-template-columns: minmax(250px, .95fr) minmax(320px, 1.45fr) !important;
+  gap: 24px !important;
+}
+
+.help-item h3,
+.help-item h3 a {
+  font-family: var(--serif) !important;
+  font-weight: 400 !important;
+  text-transform: none !important;
+}
+
+.help-title-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.help-title-link:hover {
+  text-decoration: underline;
+  text-underline-offset: .12em;
+}
+
+.help-item p {
+  justify-self: start;
+  width: 100%;
+  max-width: 620px;
+}
+
+/* Use What You Have — match approved reference layout */
+#help .section-head {
+  grid-template-columns: 1.05fr 1fr !important;
+  gap: 56px !important;
+  align-items: start !important;
+  margin-bottom: 74px !important;
+}
+
+#help .section-summary {
+  max-width: 640px !important;
+  margin-top: 12px !important;
+}
+
+#help .help-list {
+  max-width: none !important;
+  margin-left: 0 !important;
+  border-top: 1px solid var(--line) !important;
+}
+
+#help .help-item {
+  display: grid !important;
+  grid-template-columns: minmax(420px, 0.95fr) minmax(520px, 1.2fr) !important;
+  gap: 52px !important;
+  align-items: start !important;
+  padding: 34px 44px 34px 42px !important;
+  border-bottom: 1px solid var(--line) !important;
+}
+
+#help .help-item h3,
+#help .help-item h3 a {
+  margin: 0 !important;
+  font-family: "Libre Caslon Display", serif !important;
+  font-size: clamp(38px, 3.8vw, 66px) !important;
+  font-weight: 400 !important;
+  line-height: .94 !important;
+  letter-spacing: -.025em !important;
+  text-transform: none !important;
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+#help .help-item p {
+  margin: 8px 0 0 !important;
+  max-width: 660px !important;
+  width: auto !important;
+  justify-self: start !important;
+  font-family: "DM Mono", monospace !important;
+  font-size: 13px !important;
+  line-height: 1.55 !important;
+}
+
+#help .help-title-link:hover {
+  text-decoration: underline !important;
+  text-underline-offset: .12em !important;
+}
+
+@media (max-width: 1100px) {
+  #help .help-item {
+    grid-template-columns: minmax(300px, .85fr) minmax(360px, 1.15fr) !important;
+    gap: 32px !important;
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+}
+
+@media (max-width: 800px) {
+  #help .section-head {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  #help .help-item {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+    padding: 28px 0 !important;
+  }
+
+  #help .help-item h3,
+  #help .help-item h3 a {
+    font-size: clamp(36px, 10vw, 58px) !important;
+  }
+}
+
+/* PKAN definition should read as body copy, not tiny utility text */
+.pkan-body-lead {
+  display: block;
+  font-family: var(--serif);
+  font-size: clamp(24px, 2.2vw, 34px);
+  line-height: 1.18;
+  letter-spacing: normal;
+  text-transform: none;
+  max-width: 760px;
+}
+
+/* What is PKAN: definition now belongs to main body */
+#what-is-pkan .section-head {
+  grid-template-columns: 1fr !important;
+}
+
+#what-is-pkan .section-summary:empty,
+#what-is-pkan .section-summary:not(:has(*)) {
+  display: none !important;
+}
+
+.tax-note {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 0.82em;
+}
+
+/* Current fundraising goal */
+.goal-section {
+  padding: 72px 44px 78px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.goal-label {
+  margin: 0 0 28px;
+  font-family: var(--mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+.goal-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 56px;
+  align-items: end;
+}
+.goal-grid h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(76px, 10vw, 170px);
+  font-weight: 400;
+  line-height: .82;
+}
+.goal-grid p {
+  max-width: 620px;
+  margin: 0 0 8px;
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.6;
+}
+.footer-about { max-width: 360px; }
+@media (max-width: 800px) {
+  .goal-section { padding: 56px 22px 60px; }
+  .goal-grid { grid-template-columns: 1fr; gap: 28px; }
+  .goal-grid h2 { font-size: clamp(70px, 22vw, 120px); }
+}
+
+/* Updates timeline */
+.update-item {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 28px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
+}
+.update-item:first-child {
+  border-top: 1px solid var(--line);
+}
+.update-item a {
+  color: inherit;
+  text-decoration: none;
+}
+.update-item a:hover {
+  text-decoration: underline;
+  text-underline-offset: .12em;
+}
+
+/* Updates — match large serif styling across all update titles */
+.update-item {
+  grid-template-columns: 180px 1fr !important;
+  align-items: center !important;
+}
+
+.update-item > span {
+  font-family: "DM Mono", monospace !important;
+  font-size: 18px !important;
+}
+
+.update-item strong {
+  font-family: "Libre Caslon Display", serif !important;
+  font-size: clamp(38px, 4vw, 64px) !important;
+  font-weight: 400 !important;
+  line-height: 1 !important;
+}
+
+.update-item strong a {
+  font: inherit !important;
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+.update-item strong a:hover {
+  text-decoration: underline !important;
+  text-underline-offset: .12em !important;
+}
+
+@media (max-width: 800px) {
+  .update-item {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  .update-item strong {
+    font-size: clamp(34px, 9vw, 52px) !important;
+  }
+}
+
+/* Keep update headlines formatted as a single line on desktop */
+.update-item strong {
+  white-space: nowrap !important;
+  display: block !important;
+}
+.update-item strong a {
+  display: inline !important;
+  white-space: inherit !important;
+}
+
+@media (max-width: 800px) {
+  .update-item strong {
+    white-space: normal !important;
+  }
+}
+
+/* Footer Instagram */
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.footer-instagram {
+  display: inline-flex;
+  width: 18px;
+  height: 18px;
+  color: inherit;
+}
+.footer-instagram svg {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+}
+.footer-instagram:hover {
+  opacity: .55;
+}
+
+
+/* Fundraiser descriptions — restrained size matching the approved reference */
+.secondary-fundraisers .fundraiser > div:last-child > p:not(.card-label) {
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+}
+
+/* Footer contact */
+.footer-right {
+  text-align: right;
+}
+.footer-right p {
+  margin: 0 0 10px;
+}
+.footer-right a {
+  color: inherit;
+  text-decoration: none;
+}
+.footer-right a:hover {
+  text-decoration: underline;
+  text-underline-offset: .15em;
+}
+
+/* Sidebar Instagram icon */
+.sidebar-instagram {
+  display: inline-flex !important;
+  width: 20px;
+  height: 20px;
+  margin-top: 14px;
+  color: inherit;
+}
+.sidebar-instagram svg {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+}
+.sidebar-instagram:hover {
+  opacity: .55;
+}
+
