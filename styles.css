@@ -1291,3 +1291,370 @@ footer {
   opacity: .55;
 }
 
+
+
+/* =========================================================
+   FINAL RESPONSIVE PASS
+   Desktop remains unchanged; these rules apply to tablets/phones.
+   ========================================================= */
+
+@media (max-width: 800px) {
+  html, body {
+    overflow-x: hidden;
+  }
+
+  /* Mobile navigation */
+  .sidebar {
+    position: relative !important;
+    height: auto !important;
+    padding: 18px 18px 16px !important;
+    border-right: 0 !important;
+    border-bottom: 1px solid var(--line) !important;
+  }
+
+  .sidebar .wordmark {
+    font-size: 29px !important;
+    line-height: .9 !important;
+  }
+
+  .nav {
+    margin-top: 24px !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px 18px !important;
+    font-size: 12px !important;
+  }
+
+  .sidebar-instagram {
+    margin-top: 2px !important;
+    width: 19px !important;
+    height: 19px !important;
+  }
+
+  /* Homepage */
+  .hero {
+    min-height: 0 !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 42px !important;
+    padding: 92px 18px 30px !important;
+    overflow: hidden !important;
+  }
+
+  .hero-copy {
+    max-width: none !important;
+    width: 100% !important;
+  }
+
+  .hero .eyebrow {
+    max-width: 92% !important;
+    font-size: 10px !important;
+    line-height: 1.45 !important;
+  }
+
+  .hero h1 {
+    margin: 20px 0 26px !important;
+    font-size: clamp(72px, 21vw, 94px) !important;
+    line-height: .76 !important;
+    letter-spacing: -.05em !important;
+  }
+
+  .hero .intro {
+    max-width: 100% !important;
+    margin: 0 0 30px !important;
+    padding-right: 0 !important;
+    font-size: clamp(21px, 5.8vw, 26px) !important;
+    line-height: 1.12 !important;
+  }
+
+  .changing-note {
+    top: 24px !important;
+    right: 18px !important;
+    left: auto !important;
+    max-width: 240px !important;
+    font-size: 10px !important;
+    text-align: right !important;
+  }
+
+  /* Keep the sunflower as a decorative overlap with the TITLE only.
+     It is scaled as a whole and moved above the body paragraph. */
+  .hero .living-mark {
+    animation: none !important;
+    width: 190px !important;
+    height: 190px !important;
+    top: 285px !important;
+    right: -52px !important;
+    left: auto !important;
+    transform: none !important;
+    scale: .56 !important;
+    transform-origin: center !important;
+    z-index: 4 !important;
+  }
+
+  .hero-image {
+    width: 100% !important;
+    aspect-ratio: 4 / 5 !important;
+    margin-top: 8px !important;
+  }
+
+  .hero-image img {
+    object-position: center center !important;
+  }
+
+  /* Main sections */
+  .section {
+    padding: 54px 18px !important;
+  }
+
+  .section-head {
+    grid-template-columns: 1fr !important;
+    gap: 22px !important;
+    margin-bottom: 36px !important;
+  }
+
+  .section h2 {
+    font-size: clamp(52px, 15vw, 72px) !important;
+    line-height: .92 !important;
+  }
+
+  .section-summary {
+    max-width: none !important;
+    font-size: 12px !important;
+  }
+
+  .body-copy,
+  .story-copy,
+  .research-copy,
+  .pkan-copy > .body-copy {
+    width: 100% !important;
+    max-width: none !important;
+    margin-left: 0 !important;
+    padding-top: 0 !important;
+    font-size: clamp(20px, 5.4vw, 24px) !important;
+    line-height: 1.2 !important;
+  }
+
+  .body-copy p {
+    overflow-wrap: break-word;
+  }
+
+  /* PKAN fact cards */
+  .cards {
+    grid-template-columns: 1fr !important;
+  }
+
+  .cards article {
+    min-height: 180px !important;
+    padding: 22px 0 !important;
+    border-right: 0 !important;
+    border-bottom: 1px solid var(--line) !important;
+  }
+
+  .cards article:last-child {
+    border-bottom: 0 !important;
+  }
+
+  .pkan-facts h3 {
+    font-size: clamp(38px, 11vw, 54px) !important;
+  }
+
+  /* Current goal */
+  .goal-section {
+    padding: 54px 18px 60px !important;
+  }
+
+  .goal-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  .goal-grid h2 {
+    font-size: clamp(72px, 22vw, 104px) !important;
+    line-height: .82 !important;
+  }
+
+  .goal-grid p {
+    font-size: 12px !important;
+  }
+
+  /* Fundraisers */
+  .featured-loving-loic {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  .featured-loving-loic .loving-loic-image {
+    aspect-ratio: 4 / 3 !important;
+    padding: 28px !important;
+  }
+
+  .featured-fundraiser-copy {
+    min-height: 0 !important;
+    padding: 24px 0 28px !important;
+  }
+
+  .featured-fundraiser-copy h3 {
+    font-size: clamp(46px, 13vw, 62px) !important;
+  }
+
+  .secondary-fundraisers {
+    grid-template-columns: 1fr !important;
+    gap: 42px !important;
+  }
+
+  .dreams-fund-graphic,
+  .paintings-fund-graphic {
+    min-height: 240px !important;
+    padding: 28px !important;
+  }
+
+  .dreams-fund-title,
+  .paintings-fund-title {
+    font-size: clamp(42px, 12vw, 58px) !important;
+  }
+
+  .dreams-fund-subtitle,
+  .paintings-fund-subtitle {
+    margin-top: 22px !important;
+    font-size: 10px !important;
+  }
+
+  .secondary-fundraisers .fundraiser > div:last-child > p:not(.card-label) {
+    font-size: 12px !important;
+    line-height: 1.55 !important;
+  }
+
+  /* Help us move forward */
+  #help .section-head {
+    grid-template-columns: 1fr !important;
+    gap: 22px !important;
+    margin-bottom: 42px !important;
+  }
+
+  #help .help-item {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    padding: 26px 0 !important;
+  }
+
+  #help .help-item h3,
+  #help .help-item h3 a {
+    font-size: clamp(38px, 11vw, 54px) !important;
+    line-height: .98 !important;
+  }
+
+  #help .help-item p {
+    margin-top: 0 !important;
+    max-width: 100% !important;
+    font-size: 12px !important;
+  }
+
+  /* Updates */
+  .update-item {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+    padding: 24px 0 !important;
+  }
+
+  .update-item > span {
+    font-size: 12px !important;
+  }
+
+  .update-item strong {
+    white-space: normal !important;
+    font-size: clamp(38px, 11vw, 54px) !important;
+    line-height: 1 !important;
+  }
+
+  /* Final donate section */
+  #donate {
+    min-height: 580px !important;
+    padding: 42px 18px !important;
+  }
+
+  #donate h2 {
+    max-width: 88% !important;
+    margin: 70px 0 58px !important;
+    font-size: clamp(54px, 16vw, 78px) !important;
+    line-height: .94 !important;
+  }
+
+  #donate .flower-a {
+    width: 64px !important;
+    height: 64px !important;
+    right: 5% !important;
+    top: 8% !important;
+  }
+
+  #donate .flower-b {
+    width: 44px !important;
+    height: 44px !important;
+    right: 6% !important;
+    bottom: 7% !important;
+  }
+
+  #donate .flower-d {
+    display: none !important;
+  }
+
+  /* Footer */
+  footer {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+    padding: 28px 18px 36px !important;
+    font-size: 10px !important;
+  }
+
+  .footer-brand {
+    order: 1;
+  }
+
+  .footer-about {
+    order: 2;
+    max-width: none !important;
+  }
+
+  .footer-right {
+    order: 3;
+    text-align: left !important;
+  }
+
+  footer > p:last-child {
+    order: 4;
+  }
+
+  .footer-right p {
+    margin-bottom: 8px !important;
+  }
+
+  .footer-right a {
+    overflow-wrap: anywhere;
+  }
+}
+
+/* Extra-small phones */
+@media (max-width: 430px) {
+  .hero {
+    padding-left: 17px !important;
+    padding-right: 17px !important;
+  }
+
+  .hero h1 {
+    font-size: clamp(68px, 20.5vw, 88px) !important;
+  }
+
+  .hero .living-mark {
+    top: 274px !important;
+    right: -58px !important;
+    scale: .52 !important;
+  }
+
+  .hero .intro {
+    font-size: 21px !important;
+  }
+
+  .section h2 {
+    font-size: clamp(50px, 14.5vw, 66px) !important;
+  }
+}
