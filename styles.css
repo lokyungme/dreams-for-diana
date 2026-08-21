@@ -1699,3 +1699,25 @@ footer {
     z-index: 5;
   }
 }
+
+/* Mobile launch fix: keep the decorative sunflower completely clear of intro text. */
+@media (max-width: 800px) {
+  .hero .living-mark {
+    top: 238px !important;
+    right: -42px !important;
+    scale: .48 !important;
+    z-index: 2 !important;
+  }
+  .hero-copy {
+    position: relative;
+    z-index: 3;
+  }
+}
+
+@media (max-width: 430px) {
+  .hero .living-mark {
+    top: 230px !important;
+    right: -45px !important;
+    scale: .45 !important;
+  }
+}
