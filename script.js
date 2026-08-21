@@ -11,12 +11,12 @@ document.getElementById("year").textContent = new Date().getFullYear();
 // Clicking either the hero photo or the HTML sunflower advances one image.
 const dianaSlides = [
   {
-    src: "diana-sunflowers.jpg",
-    alt: "Diana standing in a field of sunflowers, holding her parents’ hands."
-  },
-  {
     src: "diana-cute.jpg",
     alt: "Diana smiling by a bright window in a floral dress."
+  },
+  {
+    src: "diana-sunflowers.jpg",
+    alt: "Diana standing in a field of sunflowers, holding her parents’ hands."
   },
   {
     src: "diana-butterfly.jpg",
