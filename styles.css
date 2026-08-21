@@ -1658,3 +1658,44 @@ footer {
     font-size: clamp(50px, 14.5vw, 66px) !important;
   }
 }
+
+/* Sidebar IG graphic final */
+.sidebar-instagram {
+  display: inline-flex !important;
+  width: 20px;
+  height: 20px;
+  margin-top: 12px;
+  color: inherit;
+}
+.sidebar-instagram svg {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+}
+.sidebar-instagram:hover {
+  opacity: .55;
+}
+
+
+/* Updates divider fix: use only the full-width row divider */
+.update-item a,
+.update-item strong,
+.update-item strong a {
+  border-bottom: 0 !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+}
+
+@media (max-width: 800px) {
+.hero .living-mark {
+    pointer-events: auto;
+  }
+
+  /* Keep decorative sunflower clear of intro copy on phones */
+  .hero .intro {
+    position: relative;
+    z-index: 5;
+  }
+}
