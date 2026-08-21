@@ -561,7 +561,11 @@ footer {
 }
 
 /* Homepage sunflower: overlap the upper-left corner of Diana's photograph */
-
+.hero .living-mark {
+  top: 29%;
+  left: 66%;
+  z-index: 4;
+}
 
 /* Keep the flower readable over the new warm yellow paper */
 .hero-image {
@@ -570,11 +574,21 @@ footer {
 }
 
 @media (max-width: 800px) {
-  
+  .hero .living-mark {
+    top: 50%;
+    left: 18px;
+    transform: translate(-12%, -50%);
+  }
 }
 
 /* Requested homepage placement: sunflower centered inside the dotted box */
-
+.hero .living-mark {
+  width: 150px;
+  height: 150px;
+  top: 25%;
+  left: 54%;
+  z-index: 4;
+}
 
 /* Scale the flower itself down proportionally for the box */
 .hero .sunflower-mark {
@@ -582,7 +596,13 @@ footer {
 }
 
 @media (max-width: 800px) {
-  
+  .hero .living-mark {
+    width: 105px;
+    height: 105px;
+    top: 24%;
+    left: 73%;
+    transform: translate(-50%, -50%);
+  }
 }
 
 
@@ -590,7 +610,9 @@ footer {
 /* Positioning fix: move the homepage sunflower ~1 CSS inch (96px) upward.
    Use top rather than transform so the sunflower animation cannot override it. */
 @media (min-width: 801px) {
-  
+  .hero .living-mark {
+    top: calc(25% - 96px) !important;
+  }
 }
 
 /* Loving Loic featured fundraiser — balanced image/type proportions */
@@ -1356,7 +1378,18 @@ footer {
 
   /* Keep the sunflower as a decorative overlap with the TITLE only.
      It is scaled as a whole and moved above the body paragraph. */
-  
+  .hero .living-mark {
+    animation: none !important;
+    width: 190px !important;
+    height: 190px !important;
+    top: 285px !important;
+    right: -52px !important;
+    left: auto !important;
+    transform: none !important;
+    scale: .56 !important;
+    transform-origin: center !important;
+    z-index: 4 !important;
+  }
 
   .hero-image {
     width: 100% !important;
@@ -1611,7 +1644,11 @@ footer {
     font-size: clamp(68px, 20.5vw, 88px) !important;
   }
 
-  
+  .hero .living-mark {
+    top: 274px !important;
+    right: -58px !important;
+    scale: .52 !important;
+  }
 
   .hero .intro {
     font-size: 21px !important;
@@ -1652,7 +1689,9 @@ footer {
 }
 
 @media (max-width: 800px) {
-
+.hero .living-mark {
+    pointer-events: auto;
+  }
 
   /* Keep decorative sunflower clear of intro copy on phones */
   .hero .intro {
@@ -1663,84 +1702,11 @@ footer {
 
 
 /* =========================================================
-   MOBILE SUNFLOWER FIX v2
-   On phones, the flower becomes its own grid item between the
-   intro/read-more block and the hero photo, so it can never
-   overlap the body copy.
+   PUBLISH-SAFE MOBILE ONLY
+   Desktop sunflower remains exactly as in the uploaded original.
    ========================================================= */
 @media (max-width: 800px) {
-  .hero-copy {
-    order: 1 !important;
-  }
-
-  
-
-  .hero-image {
-    order: 3 !important;
-  }
-
-  .changing-note {
-    order: 0 !important;
-  }
-}
-
-@media (max-width: 430px) {
-  
-}
-
-
-/* DESKTOP SUNFLOWER — single rule */
-.hero .living-mark {
-  top: 29%;
-  left: 66%;
-  z-index: 4;
-}
-
-
-/* =========================================================
-   MOBILE SUNFLOWER — single clean rule
-   The flower is a normal layout item between intro text and image.
-   ========================================================= */
-@media (max-width: 800px) {
-  .hero {
-    display: flex !important;
-    flex-direction: column !important;
-  }
-
-  .hero-copy {
-    order: 1 !important;
-  }
-
   .hero .living-mark {
-    position: relative !important;
-    inset: auto !important;
-    top: auto !important;
-    right: auto !important;
-    bottom: auto !important;
-    left: auto !important;
-    order: 2 !important;
-
-    width: 150px !important;
-    height: 150px !important;
-    margin: 14px 0 18px auto !important;
-
-    transform: none !important;
-    scale: 1 !important;
-    animation: none !important;
-
-    align-self: flex-end !important;
-    z-index: 1 !important;
-  }
-
-  .hero-image {
-    order: 3 !important;
-  }
-}
-
-@media (max-width: 430px) {
-  .hero .living-mark {
-    width: 132px !important;
-    height: 132px !important;
-    margin: 12px 0 16px auto !important;
+    display: none !important;
   }
 }
